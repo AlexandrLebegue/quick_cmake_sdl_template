@@ -1,0 +1,39 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+      "major": 3,
+      "minor": 21,
+      "patch": 0
+    },
+    "configurePresets": [
+      {
+        "name": "default",
+        "hidden": true,
+        "binaryDir": "${sourceDir}/build/${presetName}"
+      },
+      {
+        "name": "msvc17",
+        "inherits": "default",
+        "description": "Configure pour une build en mode Release",
+        "generator": "Visual Studio 17 2022", 
+        "cacheVariables": {
+            "SDL2_PATH": "${sourceDir}/sdl_installation/windows_install/SDL2-2.30.4"
+        }
+      }
+
+    ],
+    "buildPresets": [
+        {
+          "name": "default",
+          "configurePreset": "default",
+          "hidden": true
+        },
+        {
+          "name": "msvc17",
+          "configurePreset": "msvc17",
+          "description": "Build en mode Release",
+          "jobs": 4
+        }
+      ]
+  }
+  
